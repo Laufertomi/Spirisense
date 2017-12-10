@@ -1,0 +1,66 @@
+{
+  "project_info": {
+    "project_number": "707465662321",
+    "firebase_url": "https://sensordemo-44ed1.firebaseio.com",
+    "project_id": "sensordemo-44ed1",
+    "storage_bucket": "sensordemo-44ed1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:707465662321:android:8b1431489209fb67",
+        "android_client_info": {
+          "package_name": "hu.ait.android.sensordemo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "707465662321-p0v1dghhd84rhdt7f2is5pvjvr15okk4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "hu.ait.android.sensordemo",
+            "certificate_hash": "6292d8cdb06703931361d31c5ccd25555d9503c2"
+          }
+        },
+        {
+          "client_id": "707465662321-r3gtliek3juoa3pbhddo3qt3rv4jiror.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "hu.ait.android.sensordemo",
+            "certificate_hash": "1cc472dac492631debadb4a8b3a1ba6b936840d1"
+          }
+        },
+        {
+          "client_id": "707465662321-pd1qhk4tsm3lko6g80m56pvlurvss812.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAxpAHRUQgMVpPLoHCPABfl3pm7Vdm8NfE"
+        },
+        {
+          "current_key": "AIzaSyC1TZTy7aVHLsnOudrTy26sZJHUSPTg4TY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "707465662321-pd1qhk4tsm3lko6g80m56pvlurvss812.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
