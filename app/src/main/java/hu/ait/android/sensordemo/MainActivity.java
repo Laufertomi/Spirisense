@@ -479,12 +479,14 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         double elteresX = ((szoras2x/szoras1x) * 100) - 100; //százalékos eltérés kiszámítása
         double elteresY = ((szoras2y/szoras1y) * 100) - 100;
         double elteresZ = ((szoras2z/szoras1z) * 100) - 100;
+        double elteresatl = (elteresX+elteresY+elteresZ)/3;
+
 
         // appendnél látszana az előző kiírás is
         tvValue.append("Az alkohol hatására az egyensúlyod \n"+
                 "oldalirányban "+elteresX+"%-kal,"+"\n"+
                 "függőlegesen "+elteresY+"%-kal,"+"\n"+
-                "menetirányban pedig "+elteresZ+"%-kal lett rosszabb"+"\n"+
+                "menetirányban pedig "+elteresZ+"%-kal lett rosszabb " +
                 "Köszönöm a segítséget!" +"\n"+
                         "Ha valamelyik százalék negatív, az azt jelenti, hogy az előző mérésnél jobb lett az utóbbi." +
                 "Ha szeretnél még egy alkoholos mérést mérni, nyomd meg újra a Bulis Mérés gombot!" +
