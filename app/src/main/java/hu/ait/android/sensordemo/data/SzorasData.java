@@ -5,6 +5,7 @@ package hu.ait.android.sensordemo.data;
  */
 
 public class SzorasData {
+    String Tim2;
     String Ital;
     String Etel;
     String Suly;
@@ -16,7 +17,8 @@ public class SzorasData {
     private double szoras2y;
     private double szoras2z;
 
-    public SzorasData(String suly, String etel, String ital, double szoras1x, double szoras1y, double szoras1z, double szoras2x, double szoras2y, double szoras2z) {
+    public SzorasData(String tim2, String suly, String etel, String ital, double szoras1x, double szoras1y, double szoras1z, double szoras2x, double szoras2y, double szoras2z) {
+        Tim2 = tim2;
         Suly = suly;
         Etel = etel;
         Ital = ital;
@@ -26,6 +28,14 @@ public class SzorasData {
         this.szoras2x = szoras2x;
         this.szoras2y = szoras2y;
         this.szoras2z = szoras2z;
+    }
+
+    public String getTim2() {
+        return Tim2;
+    }
+
+    public void setTim2 (String tim2) {
+        Tim2 = Tim2;
     }
 
     public String getSuly() {

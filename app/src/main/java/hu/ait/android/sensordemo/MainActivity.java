@@ -23,6 +23,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import hu.ait.android.sensordemo.data.AcceleroData;
@@ -55,6 +56,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     private Button btnStart2;
     private Button btnStart3;
 
+    String tim2;
     String name;
     String suly;
     String suly2;
@@ -223,6 +225,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
                 MainActivity.this.currentTime = System.currentTimeMillis();
                 sensorManager.registerListener(MainActivity.this, sensorManager.getDefaultSensor(1), 3);
+
 
 
             }
@@ -465,8 +468,9 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         String ital = this.etPia.getText().toString().trim();
         String etel = this.etKaja.getText().toString().trim();
         String suly = this.etTomeg.getText().toString().trim();
+        String tim2 =new Date(MainActivity.this.currentTime).toString().trim();
 
-        SzorasData data = new SzorasData(suly ,etel, ital, szoras1x/100000000, szoras1y/100000000, szoras1z/100000000, szoras2x/100000000, szoras2y/100000000, szoras2z/100000000);
+        SzorasData data = new SzorasData(tim2, suly ,etel, ital, szoras1x/100000000, szoras1y/100000000, szoras1z/100000000, szoras2x/100000000, szoras2y/100000000, szoras2z/100000000);
 
         try {
             FirebaseDatabase.getInstance().getReference().child(name).child(
