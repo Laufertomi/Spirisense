@@ -3,6 +3,7 @@ package hu.ait.android.sensordemo;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -47,6 +48,8 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     private EditText etPia;
     private EditText etTomeg;
     private TextView tvValue;
+    private TextView tvValue2;
+    private TextView tvValue3;
     private EditText etKaja;
     private ImageView ivKep;
     List<AcceleroData> meres1Adat = new ArrayList<AcceleroData>();
@@ -105,6 +108,8 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             e.printStackTrace();
         }
         this.tvValue = (TextView) findViewById(R.id.tvValue);
+        this.tvValue2 = (TextView) findViewById(R.id.tvValue2);
+        this.tvValue3 = (TextView) findViewById(R.id.tvValue3);
         this.etUser = (EditText) findViewById(R.id.etUser);
         this.etTime = (EditText) findViewById(R.id.etTime);
         this.etPia = (EditText) findViewById(R.id.etPia);
@@ -480,19 +485,50 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         }
 
 
-        double elteresX = ((szoras2x/szoras1x) * 100) - 100; //százalékos eltérés kiszámítása
-        double elteresY = ((szoras2y/szoras1y) * 100) - 100;
-        double elteresZ = ((szoras2z/szoras1z) * 100) - 100;
+        double elteresX = ((szoras2x/szoras1x) * 100) ; //százalékos eltérés kiszámítása
+        double elteresY = ((szoras2y/szoras1y) * 100) ;
+        double elteresZ = ((szoras2z/szoras1z) * 100) ;
         double elteresatl = (elteresX+elteresY+elteresZ)/3;
 
 
-        // appendnél látszana az előző kiírás is
-        tvValue.append("Az alkohol hatására az egyensúlyod \n"+
-                "oldalirányban "+elteresX+"%-kal,"+"\n"+
-                "függőlegesen "+elteresY+"%-kal,"+"\n"+
-                "menetirányban pedig "+elteresZ+"%-kal lett rosszabb " +
-                "Köszönöm a segítséget!" +"\n"+
-                        "Ha valamelyik százalék negatív, az azt jelenti, hogy az előző mérésnél jobb lett az utóbbi." +
+        if(elteresX < 0)
+        {
+            elteresX= -elteresX;
+        }
+        if(elteresY < 0)
+        {
+            elteresY= -elteresY;
+        }
+
+        if(elteresZ < 0)
+        {
+            elteresZ= -elteresZ;
+        }
+
+        if ((elteresX+elteresY+elteresZ)/3 > 100)
+        {
+
+            tvValue2.setTextColor(Color.YELLOW);
+        }
+        if ((elteresX+elteresY+elteresZ)/3 > 200);
+        {
+
+            tvValue2.setTextColor(Color.RED);
+        }
+
+        if ((elteresX+elteresY+elteresZ)/3 < 100)
+        {
+            tvValue2.setTextColor(Color.BLUE);
+        }
+
+        tvValue.append("Az alkohol hatására az egyensúlyod");
+        tvValue2.setText("oldalirányban "+elteresX+"%-ka,"+"\n"+
+                "függőlegesen "+elteresY+"%-ka,"+"\n"+
+                "menetirányban pedig "+elteresZ+"%-ka az alapmérésnek. ");
+
+        tvValue3.append("Köszönöm a segítséget!" +"\n"+
+                        "Ha valamelyik százalék száz alatt van, az azt jelenti, hogy az előző mérésnél jobb lett az utóbbi." +
+                "Ha az eredmények kékek az javult, ha sárga kicsit rosszabodott, ha pedig piros, akkor sokkal rosszabb lett az egyensúlyod." +
                 "Ha szeretnél még egy alkoholos mérést mérni, nyomd meg újra a Bulis Mérés gombot!" +
                 "Ha nem szeretnél többet mérni, nyomd meg a nem szeretnék többet mérni gombot!" );
 
