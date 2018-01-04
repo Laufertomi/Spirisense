@@ -264,6 +264,10 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             tvValue.setText("Köszönöm a segítséget!" +
                     "És csak óvatosan... \uD83D\uDE09 !");
 
+            tvValue2.setText(" ");
+
+            tvValue3.append(" " );
+
             etTime.setEnabled(true);
             etUser.setEnabled(true);
             etTomeg.setEnabled(true);
@@ -521,14 +525,15 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             tvValue2.setTextColor(Color.BLUE);
         }
 
-        tvValue.append("Az alkohol hatására az egyensúlyod");
-        tvValue2.setText("oldalirányban "+elteresX+"%-ka,"+"\n"+
-                "függőlegesen "+elteresY+"%-ka,"+"\n"+
-                "menetirányban pedig "+elteresZ+"%-ka az alapmérésnek. ");
+        tvValue.append("Az alkohol hatására az egyensúlyod" +
+                        "oldalirányban "+elteresX+"%-a,"+"\n"+
+                "függőlegesen "+elteresY+"%-a,"+"\n"+
+                "menetirányban pedig "+elteresZ+"%-a az alapmérésnek. ");
+        tvValue2.setText("Átlagban az egyensúlyod most "+elteresatl+"%-a az eredetinek.");
 
         tvValue3.append("Köszönöm a segítséget!" +"\n"+
                         "Ha valamelyik százalék száz alatt van, az azt jelenti, hogy az előző mérésnél jobb lett az utóbbi." +
-                "Ha az eredmények kékek az javult, ha sárga kicsit rosszabodott, ha pedig piros, akkor sokkal rosszabb lett az egyensúlyod." +
+                "Ha az eredményed kék akkor javult, ha sárga kicsit rosszabodott, ha pedig piros, akkor sokkal rosszabb lett az egyensúlyod." +
                 "Ha szeretnél még egy alkoholos mérést mérni, nyomd meg újra a Bulis Mérés gombot!" +
                 "Ha nem szeretnél többet mérni, nyomd meg a nem szeretnék többet mérni gombot!" );
 
