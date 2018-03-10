@@ -149,11 +149,9 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         }
 
 
-        tvValue.setText("Üdvözlet! Ez az alkalmazás arra szolgál, hogy megmérd, milyen hatással van az egyensúlyodra az alkohol." +
-                "Először írj be egy jeligét, (pl. alma), a testtömeged (kg), és hány másodpercig tart a mérés. " +
-                        "Ebben az esetben 30 mp a méréshossz)."+
-                "Egyelőre még ne írj semmit az alkoholhoz és az ételhez." +
-                "Ha ezekkel végeztél, állj egyenesen úgy, hogy az egyik lábad a másik előtt van (lásd lent), majd nyomd meg a Alapmérés gombot!");
+        tvValue.setText(getString(R.string.udvozlo) +
+                getString(R.string.udvoz_adat) +
+                getString(R.string.udv_lezar)); //Üdvözlő szöveg, magyarul, és angolul
 
         ivKep.setImageResource(R.mipmap.ic_kep);
         ivKep.getLayoutParams().height = 1000; // OR
@@ -166,15 +164,15 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         btnStart1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 if (TextUtils.isEmpty(etUser.getText().toString())) {
-                    etUser.setError("Add meg a neved!"); // Ha üres reklamáljon
+                    etUser.setError(getString(R.string.name)); // Ha üres reklamáljon
                     return;
                 }
                 if (TextUtils.isEmpty(etTime.getText().toString())) {
-                    etTime.setError("Add meg a mérés hosszát másodpercben!"); //Ha üres reklamáljon
+                    etTime.setError(getString(R.string.duration)); //Ha üres reklamáljon
                     return;
                 }
                 if (TextUtils.isEmpty(etTomeg.getText().toString())) {
-                    etTomeg.setError("Add meg hány kilogramm vagy!"); //Ha üres reklamáljon
+                    etTomeg.setError(getString(R.string.weight)); //Ha üres reklamáljon
                     return;
                 }
 
@@ -197,24 +195,24 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         btnStart2.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 if (TextUtils.isEmpty(etPia.getText().toString())) {
-                    etPia.setError("Add meg az italt!");  // Ha üres reklamáljon
+                    etPia.setError(getString(R.string.drink));  // Ha üres reklamáljon
                     return;
                 }
                 if (TextUtils.isEmpty(etKaja.getText().toString())) {
-                    etKaja.setError("Add meg az ételt!");  //Ha üres reklamáljon
+                    etKaja.setError(getString(R.string.food));  //Ha üres reklamáljon
                     return;
                 }
 
                 if (TextUtils.isEmpty(etUser.getText().toString())) {
-                    etUser.setError("Add meg a neved!"); // Ha üres reklamáljon
+                    etUser.setError(getString(R.string.name2)); // Ha üres reklamáljon
                     return;
                 }
                 if (TextUtils.isEmpty(etTime.getText().toString())) {
-                    etTime.setError("Add meg a mérés hosszát másodpercben!"); //Ha üres reklamáljon
+                    etTime.setError(getString(R.string.duartion2)); //Ha üres reklamáljon
                     return;
                 }
                 if (TextUtils.isEmpty(etTomeg.getText().toString())) {
-                    etTomeg.setError("Add meg hány kilogramm vagy!"); //Ha üres reklamáljon
+                    etTomeg.setError(getString(R.string.weight2)); //Ha üres reklamáljon
                     return;
                 }
 
@@ -261,12 +259,12 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             etPia.setEnabled(false);
             etKaja.setEnabled(false);
 
-            tvValue.setText("Köszönöm a segítséget!" +
-                    "És csak óvatosan... \uD83D\uDE09 !");
+            tvValue.setText(getString(R.string.end2) +
+                    getString(R.string.end3));// elköszönő szöveg
 
             tvValue2.setText(" ");
 
-            tvValue3.append(" " );
+            tvValue3.setText(" " );
 
             etTime.setEnabled(true);
             etUser.setEnabled(true);
@@ -284,7 +282,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             // Ha az első mérésnek vége van
             if (meres1) {
                 meres1 = false;
-                tvValue.setText("Köszönöm! Most bulizz, és mikor úgy gondolod, hogy eleget ittál, töltsd ki az alkohollal és étellel kapcsolatos részeket. Ha végeztél, nyomd meg a Bulis Mérés gombot!" );
+                tvValue.setText(R.string.party_start );// party előtti szöveg
                 //Bippenjen, ha vége van
                 ToneGenerator toneGen1 = new ToneGenerator(AudioManager.STREAM_MUSIC, 100);
                 toneGen1.startTone(ToneGenerator.TONE_CDMA_PIP,150);
@@ -333,10 +331,11 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
 
 
-                tvValue.append("\nItt az első mérés szórás adatai láthatók\n"+
-                        "1.mérés oldalirány: "+szoras1x/100000000+"\n"+
-                        "1.mérés függőlegesen: "+szoras1y/100000000+"\n"+
-                        "1.mérés menetirányban "+szoras1z/100000000+"\n\n");
+                tvValue.append(getString(R.string.meres1_tajekoztat)+"  " +
+                        ""+
+                        getString(R.string.meres1_oldal)+" "+szoras1x/100000000+"\n"+
+                        getString(R.string.meres1_függ)+" "+szoras1y/100000000+"\n"+
+                        getString(R.string.meres1_menet)+" "+szoras1z/100000000+"\n\n");// 1.mérés eredményeit kiírja
 
 
                 btnStart2.setEnabled(true);
@@ -366,7 +365,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             //meres2 vége van
             else if (meres2) {
                 meres2 = false;
-                tvValue.setText("Köszönöm, végeztünk, számolok...");
+                tvValue.setText(R.string.calculating);
                 //Bippenjen, ha vége van
                 ToneGenerator toneGen1 = new ToneGenerator(AudioManager.STREAM_MUSIC, 100);
                 toneGen1.startTone(ToneGenerator.TONE_CDMA_PIP,150);
@@ -466,10 +465,11 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
 
 
-        tvValue.setText("\nItt a két mérés szórás adatai láthatók\n"+
-                "1.mérés oldalirány: "+szoras1x/100000000+", 2.mérés oldalirányban: "+szoras2x/100000000+"\n"+
-                "1.mérés függőlegesen: "+szoras1y/100000000+", 2.mérés függőlegesen: "+szoras2y/100000000+"\n"+
-                "1.mérés menetirányban "+szoras1z/100000000+", 2.mérés menetirányban: "+szoras2z/100000000+"\n\n");
+        tvValue.setText(getString(R.string.meres2_tajek)+" " +
+                ""+
+                getString(R.string.meres1_oldal)+" "+szoras1x/100000000+getString(R.string.meres2_oldal)+" "+szoras2x/100000000+"\n"+
+                getString(R.string.meres1_függ)+" "+szoras1y/100000000+getString(R.string.meres2_fugg)+" "+szoras2y/100000000+"\n"+
+                getString(R.string.meres1_menet)+" "+szoras1z/100000000+getString(R.string.meres2_menet)+" "+szoras2z/100000000+"\n\n");// szórás adatok 2.mérés után kiírása
 
 
         // szóras feltöltés firebase-ba
@@ -509,7 +509,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             elteresZ= -elteresZ;
         }
 
-        if ((elteresX+elteresY+elteresZ)/3 > 100)
+        if ((elteresX+elteresY+elteresZ)/3 > 100);
         {
 
             tvValue2.setTextColor(Color.YELLOW);
@@ -525,17 +525,17 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             tvValue2.setTextColor(Color.BLUE);
         }
 
-        tvValue.append("Az alkohol hatására az egyensúlyod" +
-                        "oldalirányban "+elteresX+"%-a,"+"\n"+
-                "függőlegesen "+elteresY+"%-a,"+"\n"+
-                "menetirányban pedig "+elteresZ+"%-a az alapmérésnek. ");
-        tvValue2.setText("Átlagban az egyensúlyod most "+elteresatl+"%-a az eredetinek.");
+        tvValue.append(getString(R.string.elteres_tajek)+"  " +
+                        getString(R.string.side)+" "+elteresX+getString(R.string.percent)+"\n"+
+                getString(R.string.vertical)+" "+elteresY+getString(R.string.percent)+"\n"+
+                getString(R.string.course)+" "+elteresZ+getString(R.string.percent2));
+        tvValue2.setText(getString(R.string.atlagoselteres1)+" "+elteresatl+getString(R.string.atlagoselteres2));// számok kiírása a képernyőre
 
-        tvValue3.append("Köszönöm a segítséget!" +"\n"+
-                        "Ha valamelyik százalék száz alatt van, az azt jelenti, hogy az előző mérésnél jobb lett az utóbbi." +
-                "Ha az eredményed kék akkor javult, ha sárga kicsit rosszabodott, ha pedig piros, akkor sokkal rosszabb lett az egyensúlyod." +
-                "Ha szeretnél még egy alkoholos mérést mérni, nyomd meg újra a Bulis Mérés gombot!" +
-                "Ha nem szeretnél többet mérni, nyomd meg a nem szeretnék többet mérni gombot!" );
+        tvValue3.append(getString(R.string.kosz) +"\n"+
+                        getString(R.string.ha100alattvan) +
+                getString(R.string.szinek) +
+                getString(R.string.ujabbmeres) +
+                getString(R.string.ittavege) ); //magyarázatok kiírása a képernyőre és instrukciók kiírása
 
 
 

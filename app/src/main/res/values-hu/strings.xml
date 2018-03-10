@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Spirisense</string>
+    <string name="udvozlo">Üdvözlet! Ez az alkalmazás arra szolgál, hogy megmérd, milyen hatással van az egyensúlyodra az alkohol.</string>
+    <string name="udvoz_adat">Először írj be egy jeligét (pl.alma), a testtömeged (kg), és azt, hogy hány másodpercig tartson a mérés (ebben az esetben 30 másodperc a méréshossz). </string>
+    <string name="udv_lezar">Ha ezekkel végeztél, állj egyenesen úgy, hogy az egyik lábad a másik előtt van, és a mellkasodon fogod a telefont, majd nyomd meg az Alapmérés gombot!</string>
+    <string name="name">Kérlek töltsd ki!</string>
+    <string name="duration">Kérlek töltsd ki!</string>
+    <string name="weight">Kérlek töltsd ki!</string>
+    <string name="food">Kérlek töltsd ki!</string>
+    <string name="drink">Kérlek töltsd ki!</string>
+    <string name="name2">Kérlek töltsd ki!</string>
+    <string name="duartion2">Kérlek töltsd ki!</string>
+    <string name="weight2">Kérlek töltsd ki!</string>
+    <string name="Fill_name">Azonosító</string>
+    <string name="fill_duration">Méréshossz</string>
+    <string name="fill_weight">Testtömeg</string>
+    <string name="fill_drink">Ital (Milyet? Mennyit?)</string>
+    <string name="fill_food">Étel</string>
+    <string name="base">Alapmérés</string>
+    <string name="party">Bulis mérés</string>
+    <string name="end">Nem szeretnék többet mérni!</string>
+    <string name="end2">Köszönöm a segítséget!</string>
+    <string name="end3">Igyál,vagy vezess!</string>
+    <string name="party_start">Köszönöm!! Most bulizz! Amikor eleget ittál, töltsd ki az alkohollal és étellel kapcsolatos részeket. Ha végeztél, nyomd meg a Bulis mérés gombot!</string>
+    <string name="meres1_tajekoztat">Itt az alap mérés szórás adatai láthatók:
+    </string>
+    <string name="meres1_oldal"> alapmérés - oldalirány:</string>
+    <string name="meres1_függ"> alapmérés - függőlegesen:</string>
+    <string name="meres1_menet"> alapmérés - menetirányban:</string>
+    <string name="calculating">Köszönöm! Számolok.....</string>
+    <string name="meres2_tajek">Itt az alap és a bulis mérés szórás adatai láthatók:</string>
+    <string name="meres2_oldal"> ,bulis mérés - oldalirány:</string>
+    <string name="meres2_fugg">,bulis mérés - függőlegesen:</string>
+    <string name="meres2_menet">,bulis mérés- menetirány:</string>
+    <string name="kosz">Köszönöm a segítséget!</string>
+    <string name="ha100alattvan"> Ha valamelyik százalék 100 alatt van, az azt jelenti, hogy az alapmérésnél jobb lett a bulis.</string>
+    <string name="szinek"> Ha az eredményed kék, akkor javult, ha sárga, akkor kicsit rosszabbodott, ha piros, akkor sokkal rosszabodott az egyensúlyod alkohol hatására.</string>
+    <string name="ujabbmeres">Ha szeretnél mégegy alkoholos mérést mérni, nyomd meg a Bulis mérés gombot.</string>
+    <string name="ittavege">Ha nem szeretnél többet mérni, nyomd meg a "nem szeretnék többet mérni" gombot.</string>
+    <string name="atlagoselteres1">Átlagban az egyensúlyod most  </string>
+    <string name="atlagoselteres2">%-a az eredetinek.</string>
+    <string name="elteres_tajek">Alkohol hatására az egyensúlyod  </string>
+    <string name="side"> oldalirányban </string>
+    <string name="percent"> %-a,</string>
+    <string name="vertical">függőlegesen </string>
+    <string name="course">menetirányban </string>
+    <string name="percent2"> %-a az alapmérésnek</string>
+</resources>

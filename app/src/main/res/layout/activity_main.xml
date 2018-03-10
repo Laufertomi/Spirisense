@@ -20,55 +20,55 @@
             android:id="@+id/etUser"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint=" azonosító (jelige)" />
+            android:hint="@string/Fill_name" />
 
         <EditText
             android:id="@+id/etTime"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="number"
-            android:hint="mérés hossza" />
+            android:hint="@string/fill_duration" />
 
         <EditText
             android:id="@+id/etTomeg"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="number"
-            android:hint="Testtömeg(kg)" />
+            android:hint="@string/fill_weight" />
 
         <EditText
             android:id="@+id/etPia"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:enabled="false"
-            android:hint="milyen és mennyi alkoholt fogyasztottál a két mérés között?" />
+            android:hint="@string/fill_drink" />
 
         <EditText
             android:id="@+id/etKaja"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:enabled="false"
-            android:hint="milyen ételt fogyasztottál a két méres között? " />
+            android:hint="@string/fill_food" />
 
         <Button
             android:id="@+id/btnStart1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Alapmérés" />
+            android:text="@string/base" />
 
         <Button
             android:id="@+id/btnStart2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:enabled="false"
-            android:text="Bulis Mérés" />
+            android:text="@string/party" />
 
         <Button
             android:id="@+id/btnStart3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:enabled="false"
-            android:text="Nem szeretnék többet mérni" />
+            android:text="@string/end" />
 
 
         <TextView
