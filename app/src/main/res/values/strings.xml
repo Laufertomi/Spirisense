@@ -2,7 +2,7 @@
     <string name="app_name">Spirisense</string>
     <string name="udvozlo">Welcome! This apps measures the effect of alcohol for your physical balance.</string>
     <string name="udvoz_adat">First Please, fill username (nickname) your weight (kg), and duration (sec , default is 30 s )</string>
-    <string name="udv_lezar">If you are ready, while standing staright, put your one leg behind the other one ( picture below) and put your hands with the smartphone to your chest . And push Basic button.</string>
+    <string name="udv_lezar">If you are ready, while standing straight, put your one leg behind the other one ( picture below) and put your hands with the smartphone to your chest . And push Basic button.</string>
     <string name="name">Please fill this!</string>
     <string name="duration">Please fill this!</string>
     <string name="weight">Please fill this!</string>
@@ -45,4 +45,10 @@
     <string name="vertical"> in vertical direction</string>
     <string name="course"> in course direction</string>
     <string name="percent2">percent of the base measurement</string>
+    <string name="statisztikaiatlag1">The average of the variance of all received data</string>
+    <string name="statisztikaix">in side direction 0.413533713,</string>
+    <string name="statisztikaiy">in vertical direction 0.489768729,</string>
+    <string name="statisztikaiz">In course direction 0.658041472.</string>
+    <string name="statisztikai2">Your physical balance</string>
+    <string name="statisztikai3">% of the average</string>
 </resources>

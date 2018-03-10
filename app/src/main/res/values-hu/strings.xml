@@ -46,4 +46,11 @@
     <string name="vertical">függőlegesen </string>
     <string name="course">menetirányban </string>
     <string name="percent2"> %-a az alapmérésnek</string>
+
+    <string name="statisztikaiatlag1">Az összes rögzített adat átlaga</string>
+    <string name="statisztikaix">oldalirányban 0.413533713,</string>
+    <string name="statisztikaiy">függőlegesen 0.489768729,</string>
+    <string name="statisztikaiz">menetirányban pedig 0.658041472.</string>
+    <string name="statisztikai2">Vagyis az egyensúlyod</string>
+    <string name="statisztikai3">%-a az átlagnak</string>
 </resources>

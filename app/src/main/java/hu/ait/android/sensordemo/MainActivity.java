@@ -40,6 +40,10 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     double szoras1x;
     double szoras1y;
     double szoras1z;
+    float szorasatlagosX;
+    float szorasatlagosY;
+    float szorasatlagosZ;
+    float szorasatlagosossz;
 
     long currentTime = 0;
     DatabaseReference database;
@@ -177,6 +181,9 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
                 }
 
 
+                ToneGenerator toneGen1 = new ToneGenerator(AudioManager.STREAM_MUSIC, 100);
+                toneGen1.startTone(ToneGenerator.TONE_CDMA_PIP,150);
+
                 ivKep.getLayoutParams().height = 0; // OR
                 ivKep.getLayoutParams().width = 0;
 
@@ -215,6 +222,9 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
                     etTomeg.setError(getString(R.string.weight2)); //Ha üres reklamáljon
                     return;
                 }
+
+                ToneGenerator toneGen1 = new ToneGenerator(AudioManager.STREAM_MUSIC, 100);
+                toneGen1.startTone(ToneGenerator.TONE_CDMA_PIP,150);
 
                 ivKep.getLayoutParams().height = 0; // OR
                 ivKep.getLayoutParams().width = 0;
@@ -313,9 +323,9 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
                     szoras1z += ((meres.getZ()-meres1ZAtlag)*(meres.getZ()-meres1ZAtlag));
                 }
 
-                szoras1x = (float) Math.sqrt(szoras1x / meres1Adat.size())*100000000;
-                szoras1y = (float) Math.sqrt(szoras1y / meres1Adat.size())*100000000;
-                szoras1z = (float) Math.sqrt(szoras1z / meres1Adat.size())*100000000;
+                szoras1x = (float) Math.sqrt(szoras1x / meres1Adat.size())*100000;
+                szoras1y = (float) Math.sqrt(szoras1y / meres1Adat.size())*100000;
+                szoras1z = (float) Math.sqrt(szoras1z / meres1Adat.size())*100000;// beszoroztam 100000-el! tizedesjegy mentés miatt
 
                 szoras1xTMP = (int)(szoras1x);
                 editor.putInt("szoras1x", szoras1xTMP);
@@ -330,12 +340,29 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
                 editor.commit();
 
 
+                szorasatlagosX = (float)(szoras1x*1000/413/100000)*100;
+                szorasatlagosY = (float)(szoras1y*1000/489/100000)*100;
+                szorasatlagosZ = (float)(szoras1z*1000/658/100000)*100;// Itt számolom ki a statisztikai átlaghoz viszonyítást
+                szorasatlagosossz = (szorasatlagosX+szorasatlagosY+szorasatlagosZ)/3;// Le kellett osztani 100000-el, mert a szoras1x nagyon nagy
+
+
+
 
                 tvValue.append(getString(R.string.meres1_tajekoztat)+"  " +
                         ""+
-                        getString(R.string.meres1_oldal)+" "+szoras1x/100000000+"\n"+
-                        getString(R.string.meres1_függ)+" "+szoras1y/100000000+"\n"+
-                        getString(R.string.meres1_menet)+" "+szoras1z/100000000+"\n\n");// 1.mérés eredményeit kiírja
+                        getString(R.string.meres1_oldal)+" "+szoras1x/100000+"\n"+
+                        getString(R.string.meres1_függ)+" "+szoras1y/100000+"\n"+
+                        getString(R.string.meres1_menet)+" "+szoras1z/100000+"\n\n");// 1.mérés eredményeit kiírja
+
+
+                tvValue.append(getString(R.string.statisztikaiatlag1)+"  " +
+                        getString(R.string.statisztikaix)+"  "+
+                        getString(R.string.statisztikaiy)+"  "+
+                        getString(R.string.statisztikaiz)+"  "+
+                        getString(R.string.statisztikai2)+" "+szorasatlagosossz+" "+getString(R.string.statisztikai3));//statisztikai átlagos rész kiírása
+
+
+
 
 
                 btnStart2.setEnabled(true);
@@ -419,9 +446,9 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             szoras1z += ((meres.getZ()-meres1ZAtlag)*(meres.getZ()-meres1ZAtlag));
         }
 
-        szoras1x = (float) Math.sqrt(szoras1x / meres1Adat.size())*100000000;
-        szoras1y = (float) Math.sqrt(szoras1y / meres1Adat.size())*100000000;
-        szoras1z = (float) Math.sqrt(szoras1z / meres1Adat.size())*100000000;
+        szoras1x = (float) Math.sqrt(szoras1x / meres1Adat.size())*100000;
+        szoras1y = (float) Math.sqrt(szoras1y / meres1Adat.size())*100000;
+        szoras1z = (float) Math.sqrt(szoras1z / meres1Adat.size())*100000;
         }
 
         // mérés 2 számolás
@@ -459,17 +486,17 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             szoras2z += ((meres.getZ()-meres2ZAtlag)*(meres.getZ()-meres2ZAtlag));
         }
 
-        szoras2x = Math.sqrt(szoras2x / meres2Adat.size())*100000000;
-        szoras2y = Math.sqrt(szoras2y / meres2Adat.size())*100000000;
-        szoras2z = Math.sqrt(szoras2z / meres2Adat.size())*100000000;
+        szoras2x = Math.sqrt(szoras2x / meres2Adat.size())*100000;
+        szoras2y = Math.sqrt(szoras2y / meres2Adat.size())*100000;
+        szoras2z = Math.sqrt(szoras2z / meres2Adat.size())*100000;
 
 
 
         tvValue.setText(getString(R.string.meres2_tajek)+" " +
                 ""+
-                getString(R.string.meres1_oldal)+" "+szoras1x/100000000+getString(R.string.meres2_oldal)+" "+szoras2x/100000000+"\n"+
-                getString(R.string.meres1_függ)+" "+szoras1y/100000000+getString(R.string.meres2_fugg)+" "+szoras2y/100000000+"\n"+
-                getString(R.string.meres1_menet)+" "+szoras1z/100000000+getString(R.string.meres2_menet)+" "+szoras2z/100000000+"\n\n");// szórás adatok 2.mérés után kiírása
+                getString(R.string.meres1_oldal)+" "+szoras1x/100000+getString(R.string.meres2_oldal)+" "+szoras2x/100000+"\n"+
+                getString(R.string.meres1_függ)+" "+szoras1y/100000+getString(R.string.meres2_fugg)+" "+szoras2y/100000+"\n"+
+                getString(R.string.meres1_menet)+" "+szoras1z/100000+getString(R.string.meres2_menet)+" "+szoras2z/100000+"\n\n");// szórás adatok 2.mérés után kiírása
 
 
         // szóras feltöltés firebase-ba
@@ -479,7 +506,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         String suly = this.etTomeg.getText().toString().trim();
         String tim2 =new Date(MainActivity.this.currentTime).toString().trim();
 
-        SzorasData data = new SzorasData(tim2, suly ,etel, ital, szoras1x/100000000, szoras1y/100000000, szoras1z/100000000, szoras2x/100000000, szoras2y/100000000, szoras2z/100000000);
+        SzorasData data = new SzorasData(tim2, suly ,etel, ital, szoras1x/100000, szoras1y/100000, szoras1z/100000, szoras2x/100000, szoras2y/100000, szoras2z/100000);
 
         try {
             FirebaseDatabase.getInstance().getReference().child(name).child(
