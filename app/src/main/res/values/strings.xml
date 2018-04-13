@@ -46,9 +46,9 @@
     <string name="course"> in course direction</string>
     <string name="percent2">percent of the base measurement</string>
     <string name="statisztikaiatlag1">The average of the variance of all received data</string>
-    <string name="statisztikaix">in side direction 0.413533713,</string>
-    <string name="statisztikaiy">in vertical direction 0.489768729,</string>
-    <string name="statisztikaiz">In course direction 0.658041472.</string>
+    <string name="statisztikaix">in side direction 0,416431229,</string>
+    <string name="statisztikaiy">in vertical direction 0,491088607,</string>
+    <string name="statisztikaiz">In course direction 0,579904076.</string>
     <string name="statisztikai2">Your physical balance</string>
     <string name="statisztikai3">% of the average</string>
 </resources>

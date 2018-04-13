@@ -340,9 +340,9 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
                 editor.commit();
 
 
-                szorasatlagosX = (float)(szoras1x*1000/413/100000)*100;
-                szorasatlagosY = (float)(szoras1y*1000/489/100000)*100;
-                szorasatlagosZ = (float)(szoras1z*1000/658/100000)*100;// Itt számolom ki a statisztikai átlaghoz viszonyítást
+                szorasatlagosX = (float)(szoras1x*1000/416/100000)*100;
+                szorasatlagosY = (float)(szoras1y*1000/491/100000)*100;
+                szorasatlagosZ = (float)(szoras1z*1000/579/100000)*100;// Itt számolom ki a statisztikai átlaghoz viszonyítást
                 szorasatlagosossz = (szorasatlagosX+szorasatlagosY+szorasatlagosZ)/3;// Le kellett osztani 100000-el, mert a szoras1x nagyon nagy
 
 
